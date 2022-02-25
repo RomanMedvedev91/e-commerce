@@ -3,3 +3,7 @@
 setup dependencies
 
     npm install
+
+start project
+
+    npm start
