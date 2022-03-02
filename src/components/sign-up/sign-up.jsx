@@ -1,7 +1,7 @@
 import React from "react";
 
 import FormInput from "../form-input/Form-input";
-import CustomButton from "../custom-button/Custom-button";
+import { CustomButton } from "../custom-button/Custom-button";
 import { auth, createProfileDocument } from "../../firebase/firebase.utils";
 
 import "./sign-up.scss";
@@ -45,6 +45,12 @@ class SignUp extends React.Component {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
+
+    this.setState({ [name]: value });
   };
 
   render() {
