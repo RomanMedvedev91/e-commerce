@@ -1,13 +1,14 @@
 import { Fragment } from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import { Outlet, Link } from "react-router-dom";
+// import { connect } from "react-redux";
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";
-import { auth } from "../../firebase/firebase.utils";
+// import { auth } from "../../utils/firebase/firebase.utils";
 
 import "./Header.scss";
 
-export const Header = ({ currentUser }) => {
+// const Header = ({ currentUser }) => {
+const Header = () => {
   return (
     <Fragment>
       <div className='header'>
@@ -18,10 +19,10 @@ export const Header = ({ currentUser }) => {
           <Link className='option' to='/shop'>
             SHOP
           </Link>
-          <Link className='option' to='/shop'>
-            CONTACT
+          <Link className='option' to='/sign-in'>
+            SIGN IN
           </Link>
-          {currentUser ? (
+          {/* {currentUser ? (
             <div className='option' onClick={() => auth.signOut()}>
               SIGN OUT
             </div>
@@ -29,14 +30,17 @@ export const Header = ({ currentUser }) => {
             <Link className='option' to='/signin'>
               SIGN IN
             </Link>
-          )}
+          )} */}
         </div>
       </div>
+      <Outlet />
     </Fragment>
   );
 };
 
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
-});
-export default connect(mapStateToProps)(Header);
+// const mapStateToProps = (state) => ({
+//   currentUser: state.user.currentUser,
+// });
+// export default connect(mapStateToProps)(Header);
+
+export default Header;
