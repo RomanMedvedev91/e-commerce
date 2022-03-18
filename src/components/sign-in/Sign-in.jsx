@@ -1,15 +1,19 @@
-import React from "react";
+// import React from "react";
 // import { CustomButton } from "../custom-button/Custom-button";
 // import FormInput from "../form-input/Form-input";
 // import "./Sign-in.scss";
 
-import { signInWithGoogle } from "../../utils/firebase/firebase.utils";
+import {
+  signInWithGoogle,
+  createUserDocumentFromAuth,
+} from "../../utils/firebase/firebase.utils";
 // import { auth } from "firebase";
 
 const SignIn = () => {
   const logGoogleUser = async () => {
-    const responce = await signInWithGoogle();
-    console.log(responce);
+    const { user } = await signInWithGoogle();
+
+    const userDocRef = await createUserDocumentFromAuth(user);
   };
 
   return (
