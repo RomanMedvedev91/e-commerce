@@ -2,14 +2,26 @@
 // import { CustomButton } from "../custom-button/Custom-button";
 // import FormInput from "../form-input/Form-input";
 // import "./Sign-in.scss";
+import { useEffect } from "react";
+import { getRedirectResult } from "firebase/auth";
 
 import {
+  auth,
   signInWithGoogle,
+  signInWithGoogleRedirect,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 // import { auth } from "firebase";
 
 const SignIn = () => {
+  useEffect(async () => {
+    const response = await getRedirectResult(auth);
+
+    if (response) {
+      const userDocRef = await createUserDocumentFromAuth(response.user);
+    }
+  }, []);
+
   const logGoogleUser = async () => {
     const { user } = await signInWithGoogle();
 
@@ -20,6 +32,9 @@ const SignIn = () => {
     <div>
       <h1>Sign In Page</h1>
       <button onClick={logGoogleUser}>Sign in with Google</button>
+      <button onClick={signInWithGoogleRedirect}>
+        Sign in with Google Redirect
+      </button>
     </div>
   );
 };

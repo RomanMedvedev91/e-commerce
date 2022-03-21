@@ -56,6 +56,8 @@ provider.setCustomParameters({ prompt: "select_account" });
 
 export const auth = getAuth();
 export const signInWithGoogle = () => signInWithPopup(auth, provider);
+export const signInWithGoogleRedirect = () =>
+  signInWithRedirect(auth, provider);
 
 export const db = getFirestore();
 // export const firestore = firebase.firestore();
