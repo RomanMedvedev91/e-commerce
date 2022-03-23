@@ -1,5 +1,5 @@
 // import React from "react";
-// import { CustomButton } from "../custom-button/Custom-button";
+// import CustomButton from "../custom-button/Custom-button";
 // import FormInput from "../form-input/Form-input";
 // import "./Sign-in.scss";
 

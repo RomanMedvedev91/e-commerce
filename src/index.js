@@ -8,7 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 // import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 // import reportWebVitals from "./reportWebVitals";
-import "./index.scss";
+import "./index";
 
 const rootElement = document.getElementById("root");
 

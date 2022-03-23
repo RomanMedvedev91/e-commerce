@@ -1,7 +1,7 @@
 // import React from "react";
 
-// import FormInput from "../form-input/Form-input";
-// import { CustomButton } from "../custom-button/Custom-button";
+import FormInput from "../form-input/Form-input";
+import CustomButton from "../custom-button/Custom-button";
 // import {
 //   auth,
 //   createProfileDocument,
@@ -63,10 +63,11 @@ const SignUp = () => {
 
   return (
     <div className='sign-up'>
-      <h1>Sign up with your email and password</h1>
+      <h2 className='title'>Don't have a account?</h2>
+      <span>Sign up with your email and password</span>
       <form className='sign-up-form' onSubmit={handleSubmit}>
-        <label>Display Name</label>
-        <input
+        <FormInput
+          label='Display Name'
           type='text'
           required
           onChange={handleChange}
@@ -74,8 +75,8 @@ const SignUp = () => {
           value={displayName}
         />
 
-        <label>Email</label>
-        <input
+        <FormInput
+          label='Email'
           type='email'
           required
           onChange={handleChange}
@@ -83,8 +84,8 @@ const SignUp = () => {
           value={email}
         />
 
-        <label>Password</label>
-        <input
+        <FormInput
+          label='Password'
           type='password'
           required
           onChange={handleChange}
@@ -92,8 +93,8 @@ const SignUp = () => {
           value={password}
         />
 
-        <label>Confirm Password</label>
-        <input
+        <FormInput
+          label='Confirm Password'
           type='password'
           required
           onChange={handleChange}
@@ -101,7 +102,7 @@ const SignUp = () => {
           value={confirmPassword}
         />
 
-        <button type='submit'>Sing Up</button>
+        <CustomButton type='submit'>Sign Up</CustomButton>
       </form>
     </div>
   );
