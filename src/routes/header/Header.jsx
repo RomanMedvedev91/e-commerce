@@ -19,7 +19,7 @@ const Header = () => {
           <Link className='option' to='/shop'>
             SHOP
           </Link>
-          <Link className='option' to='/sign-in'>
+          <Link className='option' to='/auth'>
             SIGN IN
           </Link>
           {/* {currentUser ? (

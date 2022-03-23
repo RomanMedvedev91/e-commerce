@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Header from "./routes/header/Header";
 import Homepage from "./routes/home/Homepage";
-import SignIn from "./components/sign-in/Sign-in";
+import Authentication from "./components/authentication/authentication";
 import "./App.css";
 // import { SignInAndSignUp } from "./components/signin-signup/Sign-in-sign-up";
 // import ShopPage from "./routes/shop/Shop";
@@ -20,7 +20,7 @@ const App = () => {
       <Route path='/' element={<Header />}>
         <Route index element={<Homepage />} />
         <Route path='/shop' element={<Shop />} />
-        <Route path='/sign-in' element={<SignIn />} />
+        <Route path='/auth' element={<Authentication />} />
       </Route>
     </Routes>
   );
