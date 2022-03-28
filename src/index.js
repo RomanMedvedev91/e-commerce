@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 
 // import store from "./redux/store";
 import App from "./App";
+import { UserProvider } from "./context/User.context";
 // import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 // import reportWebVitals from "./reportWebVitals";
 import "./index";
@@ -16,7 +17,9 @@ render(
   <React.StrictMode>
     {/* <Provider store={store}> */}
     <BrowserRouter>
-      <App />
+      <UserProvider>
+        <App />
+      </UserProvider>
     </BrowserRouter>
     {/* </Provider> */}
   </React.StrictMode>,

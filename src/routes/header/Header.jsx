@@ -1,14 +1,22 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
 // import { connect } from "react-redux";
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";
+import { UserContext } from "../../context/User.context";
 // import { auth } from "../../utils/firebase/firebase.utils";
-
+import { signOutUser } from "../../utils/firebase/firebase.utils.js";
 import "./Header.scss";
 
 // const Header = ({ currentUser }) => {
 const Header = () => {
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+
+  const signOutHandler = async () => {
+    const res = await signOutUser();
+    setCurrentUser(null);
+  };
+  console.log(currentUser);
   return (
     <Fragment>
       <div className='header'>
@@ -19,9 +27,15 @@ const Header = () => {
           <Link className='option' to='/shop'>
             SHOP
           </Link>
-          <Link className='option' to='/auth'>
-            SIGN IN
-          </Link>
+          {currentUser ? (
+            <span className='option' onClick={signOutHandler}>
+              SIGN OUT
+            </span>
+          ) : (
+            <Link className='option' to='/auth'>
+              SIGN IN
+            </Link>
+          )}
           {/* {currentUser ? (
             <div className='option' onClick={() => auth.signOut()}>
               SIGN OUT

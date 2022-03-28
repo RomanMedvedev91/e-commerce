@@ -4,7 +4,7 @@
 import "./authentication.scss";
 
 import SignUp from "../sign-up/sign-up";
-import SignIn from "../sign-in/sign-in";
+import SignIn from "../sign-in/Sign-in";
 
 const Authentication = () => {
   return (

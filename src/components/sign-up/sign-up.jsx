@@ -7,12 +7,13 @@ import CustomButton from "../custom-button/Custom-button";
 //   createProfileDocument,
 // } from "../../utils/firebase/firebase.utils";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 
+import { UserContext } from "../../context/User.context";
 import "./sign-up.scss";
 
 const defaultFormFields = {
@@ -25,8 +26,9 @@ const defaultFormFields = {
 const SignUp = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
+  const { setCurrentUser } = useContext(UserContext);
 
-  console.log(formFields);
+  console.log("hit");
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -44,8 +46,9 @@ const SignUp = () => {
         email,
         password
       );
-
+      setCurrentUser(user);
       await createUserDocumentFromAuth(user, { displayName });
+
       resetFormFields();
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
