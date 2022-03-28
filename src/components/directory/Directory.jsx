@@ -1,26 +1,36 @@
-import React from "react";
+// import React from "react";
 import MenuItem from "../menu-item/Menu-item";
 import "./Directory.scss";
-import SECTIONS_DATA from "./sections.data.js";
+// import SECTIONS_DATA from "./sections.data.js";
 
-class Directory extends React.Component {
-  constructor() {
-    super();
+const Directory = ({ categories }) => {
+  return (
+    <div className='directory-container'>
+      {categories.map((category) => (
+        <MenuItem key={category.id} category={category} />
+      ))}
+    </div>
+  );
+};
 
-    this.state = {
-      sections: SECTIONS_DATA,
-    };
-  }
+// class Directory extends React.Component {
+//   constructor() {
+//     super();
 
-  render() {
-    return (
-      <div className='directory-menu'>
-        {this.state.sections.map(({ id, ...sectionProps }) => (
-          <MenuItem key={id} {...sectionProps} />
-        ))}
-      </div>
-    );
-  }
-}
+//     this.state = {
+//       sections: SECTIONS_DATA,
+//     };
+//   }
+
+//   render() {
+//     return (
+//       <div className='directory-menu'>
+//         {this.state.sections.map(({ id, ...sectionProps }) => (
+//           <MenuItem key={id} {...sectionProps} />
+//         ))}
+//       </div>
+//     );
+//   }
+// }
 
 export default Directory;

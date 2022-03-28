@@ -1,59 +1,79 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
+// import React from "react";
+// import { Switch, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
+import Header from "./routes/header/Header";
+import Homepage from "./routes/home/Homepage";
+import Authentication from "./components/authentication/authentication";
 import "./App.css";
-import { Header } from "./components/header/Header";
-import { SignInAndSignUp } from "./components/signin-signup/Sign-in-sign-up";
-import Homepage from "./pages/homepage/Homepage";
-import ShopPage from "./pages/shop/Shop";
-import { auth, createProfileDocument } from "./firebase/firebase.utils";
+// import { SignInAndSignUp } from "./components/signin-signup/Sign-in-sign-up";
+// import ShopPage from "./routes/shop/Shop";
+// import { auth, createProfileDocument } from "./utils/firebase/firebase.utils";
 
-class App extends React.Component {
-  constructor() {
-    super();
+const Shop = () => {
+  return <h1>I am Shop page</h1>;
+};
 
-    this.state = {
-      currentUser: null,
-    };
-  }
+const App = () => {
+  return (
+    <Routes>
+      <Route path='/' element={<Header />}>
+        <Route index element={<Homepage />} />
+        <Route path='/shop' element={<Shop />} />
+        <Route path='/auth' element={<Authentication />} />
+      </Route>
+    </Routes>
+  );
+};
 
-  unsubcribeAuth = null;
+// class App extends React.Component {
+//   constructor() {
+//     super();
 
-  componentDidMount() {
-    this.unsubcribeAuth = auth.onAuthStateChanged(async (userAuth) => {
-      if (userAuth) {
-        const userRef = await createProfileDocument(userAuth);
+//     this.state = {
+//       currentUser: null,
+//     };
+//   }
 
-        userRef.onSnapshot((snapShot) => {
-          this.setState({
-            currentUser: {
-              id: snapShot.id,
-              ...snapShot.data(),
-            },
-          });
-        });
-      } else {
-        this.setState({ currentUser: userAuth });
-      }
-    });
-  }
+//   unsubcribeAuth = null;
 
-  componentWillUnmount() {
-    this.unsubcribeAuth();
-  }
+//   componentDidMount() {
+//     this.unsubcribeAuth = auth.onAuthStateChanged(async (userAuth) => {
+//       if (userAuth) {
+//         const userRef = await createProfileDocument(userAuth);
 
-  render() {
-    return (
-      <div>
-        <Header currentUser={this.state.currentUser} />
-        <Switch>
-          <Route exact path='/' component={Homepage} />
-          <Route path='/shop' component={ShopPage} />
-          <Route path='/signin' component={SignInAndSignUp} />
-        </Switch>
-      </div>
-    );
-  }
-}
+//         userRef.onSnapshot((snapShot) => {
+//           this.setState({
+//             currentUser: {
+//               id: snapShot.id,
+//               ...snapShot.data(),
+//             },
+//           });
+//         });
+//       } else {
+//         this.setState({ currentUser: userAuth });
+//       }
+//     });
+//   }
+
+//   componentWillUnmount() {
+//     this.unsubcribeAuth();
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         <Header currentUser={this.state.currentUser} />
+//         <Routes>
+//           <Route path='/' element={<Navigation />}>
+//             <Route index element={<Homepage />} />
+//             <Route path='/shop' element={<ShopPage />} />
+//             <Route path='/signin' element={<SignInAndSignUp />} />
+//           </Route>
+//         </Routes>
+//       </div>
+//     );
+//   }
+// }
 
 export default App;
