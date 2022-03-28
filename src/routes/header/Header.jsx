@@ -10,12 +10,12 @@ import "./Header.scss";
 
 // const Header = ({ currentUser }) => {
 const Header = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
 
-  const signOutHandler = async () => {
-    const res = await signOutUser();
-    setCurrentUser(null);
-  };
+  // const signOutHandler = async () => {
+  //   const res = await signOutUser();
+  //   setCurrentUser(null);
+  // };
   console.log(currentUser);
   return (
     <Fragment>
@@ -28,8 +28,9 @@ const Header = () => {
             SHOP
           </Link>
           {currentUser ? (
-            <span className='option' onClick={signOutHandler}>
-              SIGN OUT
+            <span className='option' onClick={signOutUser}>
+              {" "}
+              SIGN OUT{" "}
             </span>
           ) : (
             <Link className='option' to='/auth'>

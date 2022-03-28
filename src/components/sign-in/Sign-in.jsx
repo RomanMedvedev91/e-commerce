@@ -5,7 +5,7 @@ import CustomButton from "../custom-button/Custom-button";
 //   createProfileDocument,
 // } from "../../utils/firebase/firebase.utils";
 
-import { useContext, useState } from "react";
+import { useState } from "react";
 import {
   signInWithGoogle,
   createUserDocumentFromAuth,
@@ -13,7 +13,6 @@ import {
 } from "../../utils/firebase/firebase.utils";
 
 import "./Sign-in.scss";
-import { UserContext } from "../../context/User.context";
 
 const defaultFormFields = {
   email: "",
@@ -23,15 +22,13 @@ const defaultFormFields = {
 const SignIn = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
-  const { setCurrentUser } = useContext(UserContext);
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
 
   const signInWithGooglePopup = async () => {
-    const { user } = await signInWithGoogle();
-    await createUserDocumentFromAuth(user);
+    await signInWithGoogle();
   };
 
   const handleSubmit = async (event) => {
@@ -43,7 +40,6 @@ const SignIn = () => {
         password
       );
 
-      setCurrentUser(user);
       resetFormFields();
     } catch (error) {
       switch (error.code) {
