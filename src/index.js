@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 // import store from "./redux/store";
 import App from "./App";
 import { UserProvider } from "./context/User.context";
+import { ProductsProvider } from "./context/Products.context";
 // import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 // import reportWebVitals from "./reportWebVitals";
 import "./index";
@@ -18,7 +19,9 @@ render(
     {/* <Provider store={store}> */}
     <BrowserRouter>
       <UserProvider>
-        <App />
+        <ProductsProvider>
+          <App />
+        </ProductsProvider>
       </UserProvider>
     </BrowserRouter>
     {/* </Provider> */}
