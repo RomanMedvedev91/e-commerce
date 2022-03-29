@@ -2,6 +2,9 @@ import { Fragment, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
 // import { connect } from "react-redux";
 
+import CartIcon from "../../components/cart-icon/Cart-icon";
+import CartDropDown from "../../components/cart-dropdown/Cart-dropdown";
+
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { UserContext } from "../../context/User.context";
 // import { auth } from "../../utils/firebase/firebase.utils";
@@ -37,6 +40,7 @@ const Header = () => {
               SIGN IN
             </Link>
           )}
+          <CartIcon />
           {/* {currentUser ? (
             <div className='option' onClick={() => auth.signOut()}>
               SIGN OUT
@@ -47,6 +51,7 @@ const Header = () => {
             </Link>
           )} */}
         </div>
+        <CartDropDown />
       </div>
       <Outlet />
     </Fragment>
