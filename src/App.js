@@ -7,12 +7,12 @@ import Homepage from "./routes/home/Homepage";
 import Authentication from "./components/authentication/authentication";
 import "./App.css";
 // import { SignInAndSignUp } from "./components/signin-signup/Sign-in-sign-up";
-// import ShopPage from "./routes/shop/Shop";
+import Shop from "./routes/shop/Shop.jsx";
 // import { auth, createProfileDocument } from "./utils/firebase/firebase.utils";
 
-const Shop = () => {
-  return <h1>I am Shop page</h1>;
-};
+// const Shop = () => {
+//   return <h1>I am Shop page</h1>;
+// };
 
 const App = () => {
   return (
