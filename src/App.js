@@ -8,6 +8,7 @@ import Authentication from "./components/authentication/authentication";
 import "./App.css";
 // import { SignInAndSignUp } from "./components/signin-signup/Sign-in-sign-up";
 import Shop from "./routes/shop/Shop.jsx";
+import Checkout from "./routes/checkout/Checkout";
 // import { auth, createProfileDocument } from "./utils/firebase/firebase.utils";
 
 // const Shop = () => {
@@ -21,6 +22,7 @@ const App = () => {
         <Route index element={<Homepage />} />
         <Route path='/shop' element={<Shop />} />
         <Route path='/auth' element={<Authentication />} />
+        <Route path='/checkout' element={<Checkout />} />
       </Route>
     </Routes>
   );
