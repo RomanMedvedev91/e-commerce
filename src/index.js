@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 // import store from "./redux/store";
 import App from "./App";
 import { UserProvider } from "./context/User.context";
-import { ProductsProvider } from "./context/Products.context";
+import { CategoriesProvider } from "./context/Categories.context";
 import { CartProvider } from "./context/Cart.context";
 // import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 // import reportWebVitals from "./reportWebVitals";
@@ -20,11 +20,11 @@ render(
     {/* <Provider store={store}> */}
     <BrowserRouter>
       <UserProvider>
-        <ProductsProvider>
+        <CategoriesProvider>
           <CartProvider>
             <App />
           </CartProvider>
-        </ProductsProvider>
+        </CategoriesProvider>
       </UserProvider>
     </BrowserRouter>
     {/* </Provider> */}
