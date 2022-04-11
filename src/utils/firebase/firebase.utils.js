@@ -1,4 +1,4 @@
-import { async } from "@firebase/util";
+// import { async } from "@firebase/util";
 import { initializeApp } from "firebase/app";
 
 import {
@@ -79,8 +79,8 @@ export const addCollectionAndDocuments = async (
   collectionKey,
   objectsToAdd
 ) => {
-  const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);
+  const collectionRef = collection(db, collectionKey);
 
   objectsToAdd.forEach((object) => {
     const docRef = doc(collectionRef, object.title.toLowerCase());
