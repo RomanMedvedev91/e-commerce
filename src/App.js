@@ -11,16 +11,12 @@ import Shop from "./routes/shop/Shop.jsx";
 import Checkout from "./routes/checkout/Checkout";
 // import { auth, createProfileDocument } from "./utils/firebase/firebase.utils";
 
-// const Shop = () => {
-//   return <h1>I am Shop page</h1>;
-// };
-
 const App = () => {
   return (
     <Routes>
       <Route path='/' element={<Header />}>
         <Route index element={<Homepage />} />
-        <Route path='/shop' element={<Shop />} />
+        <Route path='/shop/*' element={<Shop />} />
         <Route path='/auth' element={<Authentication />} />
         <Route path='/checkout' element={<Checkout />} />
       </Route>

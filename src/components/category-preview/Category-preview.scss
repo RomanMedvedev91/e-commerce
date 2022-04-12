@@ -6,10 +6,12 @@
   .title {
     font-size: 28px;
     margin-bottom: 25px;
+    cursor: pointer;
   }
 
   .preview {
     display: flex;
     justify-content: space-between;
+    column-gap: 20px;
   }
 }
