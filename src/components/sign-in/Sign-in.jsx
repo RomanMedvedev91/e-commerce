@@ -1,5 +1,7 @@
 import FormInput from "../form-input/Form-input";
-import CustomButton from "../custom-button/Custom-button";
+import CustomButton, {
+  BUTTON_TYPE_CLASSES,
+} from "../custom-button/Custom-button";
 // import {
 //   auth,
 //   createProfileDocument,
@@ -90,7 +92,7 @@ const SignIn = () => {
           <CustomButton type='submit'>Sign In</CustomButton>
           <CustomButton
             type='button'
-            buttonType='google'
+            buttonType={BUTTON_TYPE_CLASSES.google}
             onClick={signInWithGooglePopup}
           >
             Google Sign In
