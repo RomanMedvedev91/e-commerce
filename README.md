@@ -4,7 +4,7 @@ Single page e-commerce application build with React
 
 deployment
 
-    https://rm-e-commerce.netlify.app/
+https://rm-e-commerce.netlify.app/
 
 - screenshoot #1
 
