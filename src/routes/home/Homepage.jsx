@@ -1,9 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Directory from "../../components/directory/Directory";
-// import MenuItem from "../../components/menu-item/Menu-item";
-import "./Homepage.scss";
 
-// import SECTIONS_DATA from "../../components/directory/sections.data";
+import { HomepageContainer } from "./Homepage.style";
 
 const Homepage = () => {
   const categories = [
@@ -35,10 +33,10 @@ const Homepage = () => {
   ];
 
   return (
-    <div className='homepage'>
+    <HomepageContainer>
       <Directory categories={categories} />
       <Outlet />
-    </div>
+    </HomepageContainer>
   );
 };
 

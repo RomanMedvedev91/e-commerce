@@ -1,11 +1,7 @@
-// import SHOP_DATA from "./shop.data.js";
-
 import { Routes, Route } from "react-router-dom";
 import CategoriesPreview from "../categories-preview/Categories-preview";
 
 import Category from "../category/Category";
-
-import "./Shop.scss";
 
 const Shop = () => {
   return (

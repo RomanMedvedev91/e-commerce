@@ -1,19 +1,14 @@
-// import React from "react";
+import { useState } from "react";
 
 import FormInput from "../form-input/Form-input";
 import CustomButton from "../custom-button/Custom-button";
-// import {
-//   auth,
-//   createProfileDocument,
-// } from "../../utils/firebase/firebase.utils";
 
-import { useState } from "react";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 
-import "./sign-up.scss";
+import { SignUpContainer } from "./sign-up.style";
 
 const defaultFormFields = {
   displayName: "",
@@ -62,7 +57,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className='sign-up'>
+    <SignUpContainer>
       <h2 className='title'>Don't have a account?</h2>
       <span>Sign up with your email and password</span>
       <form className='sign-up-form' onSubmit={handleSubmit}>
@@ -104,7 +99,7 @@ const SignUp = () => {
 
         <CustomButton type='submit'>Sign Up</CustomButton>
       </form>
-    </div>
+    </SignUpContainer>
   );
 };
 // class SignUp extends React.Component {
