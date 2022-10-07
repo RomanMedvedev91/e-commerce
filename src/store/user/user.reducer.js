@@ -17,6 +17,6 @@ const userReducer = (state = INITIAL_STATE, action) => {
       };
 
     default:
-      throw new Error(`Unhandled type ${type} in userReducer`);
+      return state;
   }
 };
