@@ -10,12 +10,12 @@ import Authentication from "./components/authentication/authentication";
 
 import Checkout from "./routes/checkout/Checkout";
 import { setCurrentUser } from "./store/user/user.action.js";
-import { setCategoriesMap } from "./store/category/category.action.js";
+// import { setCategoriesMap } from "./store/category/category.action.js";
 
 import {
   onAuthStateChangedListener,
   createUserDocumentFromAuth,
-  getCategoriesAndDocuments,
+  // getCategoriesAndDocuments,
 } from "./utils/firebase/firebase.utils.js";
 
 const App = () => {
@@ -31,14 +31,14 @@ const App = () => {
     return unsibscibe;
   }, [dispatch]);
 
-  useEffect(() => {
-    const getCategoriesMap = async () => {
-      const categoryMap = await getCategoriesAndDocuments("categories");
-      dispatch(setCategoriesMap(categoryMap));
-      // setCategoriesMap(categoryMap);
-    };
-    getCategoriesMap();
-  }, []);
+  // useEffect(() => {
+  //   const getCategoriesMap = async () => {
+  //     const categoryMap = await getCategoriesAndDocuments("categories");
+  //     dispatch(setCategoriesMap(categoryMap));
+  //     // setCategoriesMap(categoryMap);
+  //   };
+  //   getCategoriesMap();
+  // }, []);
 
   return (
     <Routes>
