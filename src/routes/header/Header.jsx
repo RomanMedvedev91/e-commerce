@@ -1,12 +1,13 @@
 import { Fragment, useContext } from "react";
-import { Outlet, Link } from "react-router-dom";
-
+import { Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
 import CartIcon from "../../components/cart-icon/Cart-icon";
 import CartDropDown from "../../components/cart-dropdown/Cart-dropdown";
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";
-import { UserContext } from "../../context/User.context";
+// import { UserContext } from "../../context/User.context";
 import { CartContext } from "../../context/Cart.context";
+import { selectCurrentUser } from "../../store/user/user.selector";
 
 import { signOutUser } from "../../utils/firebase/firebase.utils.js";
 
@@ -18,7 +19,8 @@ import {
 } from "./Header.style.jsx";
 
 const Header = () => {
-  const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser);
+  // const { currentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
 
   return (
