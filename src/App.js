@@ -31,15 +31,6 @@ const App = () => {
     return unsibscibe;
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   const getCategoriesMap = async () => {
-  //     const categoryMap = await getCategoriesAndDocuments("categories");
-  //     dispatch(setCategoriesMap(categoryMap));
-  //     // setCategoriesMap(categoryMap);
-  //   };
-  //   getCategoriesMap();
-  // }, []);
-
   return (
     <Routes>
       <Route path='/' element={<Header />}>

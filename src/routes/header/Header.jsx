@@ -5,8 +5,6 @@ import CartIcon from "../../components/cart-icon/Cart-icon";
 import CartDropDown from "../../components/cart-dropdown/Cart-dropdown";
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";
-// import { UserContext } from "../../context/User.context";
-// import { CartContext } from "../../context/Cart.context";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { selectIsCartOpen } from "../../store/cart/cart.selector";
 
@@ -22,8 +20,6 @@ import {
 const Header = () => {
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
-  // const { currentUser } = useContext(UserContext);
-  // const { isCartOpen } = useContext(CartContext);
 
   return (
     <Fragment>

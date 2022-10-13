@@ -15,18 +15,11 @@ import {
   RemoveButton,
 } from "./Checkout-item.style.jsx";
 
-// import { useContext } from "react";
-// import { CartContext } from "../../context/Cart.context";
-
 const CheckoutItem = ({ cartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
 
   const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();
-  // const { cartItems } = useContext(CartContext);
-
-  // const { addItemToCart, removeItemToCart, clearItemFromCart } =
-  //   useContext(CartContext);
 
   const clearitemHandler = () =>
     dispatch(clearItemFromCart(cartItems, cartItem));
