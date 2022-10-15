@@ -5,12 +5,19 @@ import CategoriesPreview from "../categories-preview/Categories-preview";
 
 import Category from "../category/Category";
 
-import { fetchCategoriesAsync } from "../../store/category/category.action";
+// using thunk
+// import { fetchCategoriesAsync } from "../../store/category/category.action";
+
+// using saga
+import { fetchCategoriesStart } from "../../store/category/category.action";
 
 const Shop = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchCategoriesAsync());
+    // using thunk
+    // dispatch(fetchCategoriesAsync());
+    // using saga
+    dispatch(fetchCategoriesStart());
   }, []);
 
   return (
