@@ -13,8 +13,9 @@ import { setCurrentUser } from "./store/user/user.action.js";
 // import { setCategoriesMap } from "./store/category/category.action.js";
 
 import {
-  onAuthStateChangedListener,
-  createUserDocumentFromAuth,
+  // onAuthStateChangedListener,
+  // createUserDocumentFromAuth,
+  getCurrentUser,
   // getCategoriesAndDocuments,
 } from "./utils/firebase/firebase.utils.js";
 
@@ -22,14 +23,8 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const unsibscibe = onAuthStateChangedListener((user) => {
-      if (user) {
-        createUserDocumentFromAuth(user);
-      }
-      dispatch(setCurrentUser(user));
-    });
-    return unsibscibe;
-  }, [dispatch]);
+    getCurrentUser().then((user) => console.log(user));
+  }, []);
 
   return (
     <Routes>
