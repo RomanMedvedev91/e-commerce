@@ -30,6 +30,12 @@ start project
 
     npm start
 
+for payment with Stripe use the following
+
+    test card number: 4242 4242 4242 4242
+    expires date: 04/24 (or any future date)
+    post code: 24242
+
 ## Dependancies
 
 - firebase
