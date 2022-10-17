@@ -95,14 +95,19 @@ export const getCategoriesAndDocuments = async () => {
   const collectionRef = collection(db, "categories");
   const q = query(collectionRef);
 
-  const querySnapshot = await getDocs(q);
-  const categoryMap = querySnapshot.docs.reduce((acc, docSnapShot) => {
-    const { title, items } = docSnapShot.data();
-    acc[title.toLowerCase()] = items;
-    return acc;
-  }, {});
+  // to show an error message
+  // await Promise.reject(new Error("new error woops"));
 
-  return categoryMap;
+  const querySnapshot = await getDocs(q);
+  return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+  // const categoryMap = querySnapshot.docs
+  // .reduce((acc, docSnapShot) => {
+  //   const { title, items } = docSnapShot.data();
+  //   acc[title.toLowerCase()] = items;
+  //   return acc;
+  // }, {});
+
+  // return categoryMap;
 };
 // export const firestore = firebase.firestore();
 
@@ -114,28 +119,25 @@ export const createUserDocumentFromAuth = async (
 
   const userDocRef = doc(db, "users", userAuth.uid);
 
-  // console.log(userDocRef);
-
   const userSnapshot = await getDoc(userDocRef);
-  // console.log(userSnapshot);
-  // console.log(userSnapshot.exists());
 
   if (!userSnapshot.exists()) {
     const { displayName, email } = userAuth;
-    const createAt = new Date();
+    const createdAt = new Date();
 
     try {
       await setDoc(userDocRef, {
         displayName,
         email,
-        createAt,
+        createdAt,
         ...additionalInformation,
       });
     } catch (error) {
       console.log("error creating the user", error.message);
     }
   }
-  return userDocRef;
+
+  return userSnapshot;
 };
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
@@ -154,3 +156,16 @@ export const signOutUser = async () => await signOut(auth);
 
 export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscibe = onAuthStateChanged(
+      auth,
+      (userAuth) => {
+        unsubscibe();
+        resolve(userAuth);
+      },
+      reject
+    );
+  });
+};
