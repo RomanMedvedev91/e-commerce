@@ -9,7 +9,10 @@ const shrinkLabelStyles = css`
   color: ${mainColor};
 `;
 
-export const FormImputLabel = styled.label`
+type FormImputLabelProps = {
+  shrink?: boolean;
+};
+export const FormImputLabel = styled.label<FormImputLabelProps>`
   color: ${subColor};
   font-size: 16px;
   font-weight: normal;
