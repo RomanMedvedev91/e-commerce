@@ -15,7 +15,7 @@ import {
   NavLink,
   NavLinks,
   LogoContainer,
-} from "./Header.style.jsx";
+} from "./Header.style";
 
 const Header = () => {
   const dispatch = useDispatch();
