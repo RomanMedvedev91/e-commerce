@@ -1,15 +1,15 @@
+import { useSelector } from "react-redux";
+import {
+  selectCartItems,
+  selectCartTotal,
+} from "../../store/cart/cart.selector";
+
 import {
   CheckoutContainer,
   CheckoutHeader,
   HeaderBlock,
   Total,
 } from "./Checkout.style";
-
-import { useSelector } from "react-redux";
-import {
-  selectCartItems,
-  selectCartTotal,
-} from "../../store/cart/cart.selector";
 
 import CheckoutItem from "../../components/checkout-item/Checkout-item";
 import PaymentForm from "../../components/payment-form/Payment-form";

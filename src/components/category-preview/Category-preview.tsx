@@ -1,5 +1,4 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { FC } from "react";
 
 import ProductCard from "../product-card/Product-card";
 
@@ -9,7 +8,14 @@ import {
   Preview,
 } from "./Category-preview.style";
 
-const CategoryPreview = ({ title, products }) => (
+import { CategoryItem } from "../../store/category/category.types";
+
+type CategoryPreviewProps = {
+  title: string;
+  products: CategoryItem[];
+};
+
+const CategoryPreview: FC<CategoryPreviewProps> = ({ title, products }) => (
   <CategoryPreviewContainer>
     <h2>
       <Title to={title}>{title.toUpperCase()}</Title>
