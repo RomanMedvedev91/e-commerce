@@ -6,7 +6,7 @@ import "./App.css";
 import Header from "./routes/header/Header";
 import Homepage from "./routes/home/Homepage";
 import Shop from "./routes/shop/Shop";
-import Authentication from "./components/authentication/authentication";
+import Authentication from "./routes/authentication/authentication";
 
 import Checkout from "./routes/checkout/Checkout";
 import { checkUserSession } from "./store/user/user.action";
